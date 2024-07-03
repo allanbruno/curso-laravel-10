@@ -15,6 +15,7 @@ services:
     nginx:
         container_name: servidor-nginx
         image: nginx:alpine
+        platform: linux/amd64
         restart: unless-stopped
         ports:
             - "8989:80"
@@ -23,10 +24,11 @@ services:
             - ./docker/nginx/:/etc/nginx/conf.d/
         networks:
             - sistema-getao-network
-     # db mysql ${DB_DATABASE} //Busca do arquivo .env
+        # db mysql ${DB_DATABASE} //Busca do arquivo .env
     mysql:
         container_name: banco-mysql
         image: mysql:5.7.22
+        platform: linux/amd64
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
@@ -43,6 +45,7 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
+        platform: linux/amd64
         links:
             - mysql
         restart: always
@@ -65,4 +68,3 @@ networks:
 # servidor: mysql
 # user: root
 # pass: root
-
