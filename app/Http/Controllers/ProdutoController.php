@@ -21,4 +21,9 @@ class ProdutoController extends Controller
 
         return view('pages.produtos.paginacao', compact('findProdutos'));
     }
+
+    public function delete(Request $request)
+    {
+
+    }
 }
