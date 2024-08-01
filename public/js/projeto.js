@@ -17,7 +17,11 @@ function deleteRegistroPaginacao(rotaUrl, idRegistro) {
             },
         }).done(function (data) {
             $.unblockUI();
-            console.log(data);
+            if (data.success === true) {
+                window.location.reload();
+            } else {
+                alert('Não foi possível excluir o registro');
+            }
         }).fail(function (data) {
             $.unblockUI();
             alert('Não foi possível buscar os dados');
