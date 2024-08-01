@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
-use function Laravel\Prompts\search;
 
 class ProdutoController extends Controller
 {
@@ -24,6 +23,6 @@ class ProdutoController extends Controller
 
     public function delete(Request $request)
     {
-
+        return response()->json(['success' => true]);
     }
 }
