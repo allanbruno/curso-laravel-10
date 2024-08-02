@@ -32,7 +32,10 @@ class ProdutoController extends Controller
     public function cadastrarProduto(Request $request)
     {
         if ($request->method() == "POST") {
-            dd($request);
+            $data = $request->all();
+            Produto::create($data);
+
+            return redirect()->route('produto.index');
         }
 
         return view('pages.produtos.create');
