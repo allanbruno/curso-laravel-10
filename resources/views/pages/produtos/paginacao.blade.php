@@ -1,4 +1,4 @@
-{{--Extands da Index (index.blade.php)--}}
+{{--Extends da Index (index.blade.php)--}}
 @extends('index')
 
 @section('content')
@@ -9,7 +9,7 @@
         <form action="{{ route('produto.index')  }}" method="get">
             <input type="text" name="pesquisar" placeholder="Digite o nome"/>
             <button>Pesquisar</button>
-            <a type="button" href="" class="btn btn-success float-end">
+            <a type="button" href="{{ route('cadastrar.produto')  }}" class="btn btn-success float-end">
                 Incluir Produto
             </a>
         </form>
