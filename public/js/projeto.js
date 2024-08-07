@@ -22,7 +22,7 @@ function deleteRegistroPaginacao(rotaUrl, idRegistro) {
             } else {
                 alert('Não foi possível excluir o registro');
             }
-        }).fail(function (data) {
+        }).fail(function () {
             $.unblockUI();
             alert('Não foi possível buscar os dados');
         });
