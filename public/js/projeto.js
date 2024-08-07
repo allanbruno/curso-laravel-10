@@ -28,5 +28,5 @@ function deleteRegistroPaginacao(rotaUrl, idRegistro) {
         });
     }
 }
-console.log('Projeto.js');
+
 $('#mascara_valor').mask('#.##0,00', { reverse: true });
