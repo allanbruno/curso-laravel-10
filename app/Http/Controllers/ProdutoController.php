@@ -39,6 +39,8 @@ class ProdutoController extends Controller
             $data['valor'] = $components->formatacaoMascaraDinheiroDecimal($data['valor']);
             Produto::create($data);
 
+            toastr()->success('Produto cadastrado com sucesso!');
+
             return redirect()->route('produto.index');
         }
 
