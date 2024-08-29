@@ -45,7 +45,7 @@ Route::prefix('produtos')->group(function () {
 });
 
 Route::prefix('clientes')->group(function () {
-    Route::get('/', [ClientesController::class, 'index'])->name('cliente.index');
+    Route::get('/', [ClientesController::class, 'index'])->name('clientes.index');
 
     Route::get(
         '/cadastrarCliente',

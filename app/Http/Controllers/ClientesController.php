@@ -16,9 +16,9 @@ class ClientesController extends Controller
     public function index(Request $request)
     {
         $pesquisar = $request->pesquisar;
-        $findClientes = $this->cliente->getProdutosPesquisarIndex(search: $pesquisar ?? '');
+        $findCliente = $this->cliente->getClientesPesquisarIndex(search: $pesquisar ?? '');
 
-        return view('pages.clientes.paginacao', compact('findClientes'));
+        return view('pages.clientes.paginacao', compact('findCliente'));
     }
 
     public function delete(Request $request)
