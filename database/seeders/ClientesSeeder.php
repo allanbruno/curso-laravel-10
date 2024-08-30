@@ -19,5 +19,15 @@ class ClientesSeeder extends Seeder
                 'bairro' => 'Jardim X',
             ]
         );
+        Cliente::create(
+            [
+                'nome' => 'Allan Alves',
+                'email' => 'al@gmail.com',
+                'endereco' => 'Rua l',
+                'logradouro' => 'Rua l',
+                'cep' => '88135110',
+                'bairro' => 'Jardim L',
+            ]
+        );
     }
 }
