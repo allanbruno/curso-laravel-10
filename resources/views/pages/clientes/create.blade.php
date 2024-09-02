@@ -36,6 +36,7 @@
         <div class="mb-3">
             <label class="form-label">CEP</label>
             <input
+                    id="cep"
                     value="{{ old('cep') }}"
                     class="form-control @error('cep') is-invalid @enderror"
                     name="cep"

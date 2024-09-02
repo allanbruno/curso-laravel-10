@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormRequestClientes;
 use App\Models\Cliente;
 use App\Models\Componentes;
 use Illuminate\Http\Request;
@@ -29,17 +30,15 @@ class ClientesController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function cadastrarCliente(Request $request)
+    public function cadastrarCliente(FormRequestClientes $request)
     {
         if ($request->method() == "POST") {
             $data = $request->all();
-            $components = new Componentes();
-            $data['valor'] = $components->formatacaoMascaraDinheiroDecimal($data['valor']);
             Cliente::create($data);
 
             toastr()->success('Cliente cadastrado com sucesso!');
 
-            return redirect()->route('cliente.index');
+            return redirect()->route('clientes.index');
         }
 
         return view('pages.clientes.create');
