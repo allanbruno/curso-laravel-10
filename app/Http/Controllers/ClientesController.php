@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestClientes;
 use App\Models\Cliente;
-use App\Models\Componentes;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
