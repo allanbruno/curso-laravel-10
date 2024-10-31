@@ -72,12 +72,5 @@ Route::prefix('clientes')->group(function () {
 Route::prefix('vendas')->group(function () {
     Route::get('/', [VendaController::class, 'index'])->name('vendas.index');
 
-    Route::get(
-        '/cadastrarVenda',
-        [VendaController::class, 'cadastrarVenda']
-    )->name('cadastrar.venda');
-
-    Route::post('/cadastrarVenda',
-        [VendaController::class, 'cadastrarVenda']
-    )->name('cadastrar.venda');
+    Route::get('/cadastrarVenda', [VendaController::class, 'cadastrarVenda'])->name('cadastrar.venda');
 });
