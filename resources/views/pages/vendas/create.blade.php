@@ -4,7 +4,7 @@
     <form method="POST" action="{{ route('cadastrar.cliente') }}">
         @csrf
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Criar novo Cliente</h1>
+            <h1 class="h2">Cadastrar Venda</h1>
         </div>
         <div class="mb-3">
             <label class="form-label">Nome</label>

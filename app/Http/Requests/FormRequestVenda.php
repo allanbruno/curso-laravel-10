@@ -8,13 +8,19 @@ class FormRequestVenda extends FormRequest
 {
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function rules(): array
     {
-        return [
-
-        ];
+        $request = [];
+        if ($this->method() == "POST" || $this->method() == "PUT") {
+            $request = [
+                'numero_da_venda' => 'required',
+                'produto_id' => 'required',
+                'cliente_id' => 'required',
+            ];
+        }
+        return $request;
     }
 }
