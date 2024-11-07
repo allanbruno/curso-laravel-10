@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestVenda;
+use App\Models\Cliente;
+use App\Models\Produto;
 use App\Models\Venda;
 use Illuminate\Http\Request;
 
@@ -32,8 +34,14 @@ class VendaController extends Controller
 
     public function cadastrarVenda(FormRequestVenda $request)
     {
+        $findNumeracao = Venda::max('numero_da_venda') + 1;
+        $findProdutos = Produto::all();
+        $findClientes = Cliente::all();
+
         if ($request->method() == "POST") {
             $data = $request->all();
+            $data['numero_da_venda'] = $findNumeracao;
+
             Venda::create($data);
 
             toastr()->success('Venda cadastrado com sucesso!');
@@ -41,7 +49,10 @@ class VendaController extends Controller
             return redirect()->route('vendas.index');
         }
 
-        return view('pages.vendas.create');
+        return view(
+            'pages.vendas.create',
+            compact('findNumeracao', 'findProdutos', 'findClientes')
+        );
     }
 
 }
