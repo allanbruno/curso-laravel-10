@@ -27,18 +27,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($findVendas as $venda)
-                        <tr>
-                            <td>{{ $venda->numero_da_venda }}</td>
-                            <td>{{ $venda->produto->nome }}</td>
-                            <td>{{ $venda->cliente->nome }}</td>
-                            <td>
-                                <a href="#" class="btn btn-light btn-sm">
-                                    Enviar e-mail
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                        @foreach($findVendas as $venda)
+                            <tr>
+                                <td>{{ $venda->numero_da_venda }}</td>
+                                <td>{{ $venda->produto->nome }}</td>
+                                <td>{{ $venda->cliente->nome }}</td>
+                                <td>
+                                    <a href="#" class="btn btn-light btn-sm">
+                                        Enviar e-mail
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             @endif
