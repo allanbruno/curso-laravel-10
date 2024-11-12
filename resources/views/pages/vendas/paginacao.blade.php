@@ -19,12 +19,12 @@
             @else
                 <table class="table table-striped table-sm">
                     <thead>
-                    <tr>
-                        <th>Número da venda</th>
-                        <th>Produto</th>
-                        <th>Cliente</th>
-                        <th>Ações</th>
-                    </tr>
+                        <tr>
+                            <th>Número da venda</th>
+                            <th>Produto</th>
+                            <th>Cliente</th>
+                            <th>Ações</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach($findVendas as $venda)
