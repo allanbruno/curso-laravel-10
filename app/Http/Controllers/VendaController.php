@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestVenda;
+use App\Mail\ComprovanteDeVendaEmail;
 use App\Models\Cliente;
 use App\Models\Produto;
 use App\Models\Venda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class VendaController extends Controller
 {
@@ -53,6 +55,25 @@ class VendaController extends Controller
             'pages.vendas.create',
             compact('findNumeracao', 'findProdutos', 'findClientes')
         );
+    }
+
+    public function enviaComprovantePorEmail($id)
+    {
+        $buscarVenda = Venda::where('id', '=', $id)->first();
+        $produtoNome = $buscarVenda->produto->nome;
+        $clienteEmail = $buscarVenda->cliente->email;
+        $clienteNome = $buscarVenda->cliente->nome;
+
+        $sendMailData = [
+            'produtoNome' => $produtoNome,
+            'clienteNome' => $clienteNome,
+        ];
+
+        Mail::to($clienteEmail)->send(new ComprovanteDeVendaEmail($sendMailData));
+
+        toastr()->success('Enviado com sucesso!');
+
+        return redirect()->route('vendas.index');
     }
 
 }
