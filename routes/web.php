@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\VendaController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,4 +86,8 @@ Route::prefix('vendas')->group(function () {
         '/enviaComprovantePorEmail/{id}',
         [VendaController::class, 'enviaComprovantePorEmail']
     )->name('enviaComprovantePorEmail.venda');
+});
+
+Route::prefix('usuario')->group(function () {
+    Route::get('/', [UsuarioController::class, 'index'])->name('usuario.index');
 });
