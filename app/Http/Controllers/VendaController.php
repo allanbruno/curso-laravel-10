@@ -71,7 +71,7 @@ class VendaController extends Controller
 
         Mail::to($clienteEmail)->send(new ComprovanteDeVendaEmail($sendMailData));
 
-        toastr()->success('Enviado com sucesso!');
+        toastr()->success('Email enviado com sucesso!');
 
         return redirect()->route('vendas.index');
     }
