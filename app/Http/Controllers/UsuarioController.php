@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsuarioFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-
     public function __construct(User $user)
     {
         $this->user = $user;
@@ -30,7 +30,7 @@ class UsuarioController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function cadastrarUsuario(Request $request)
+    public function cadastrarUsuario(UsuarioFormRequest $request)
     {
         if ($request->method() == "POST") {
             $data = $request->all();
@@ -44,7 +44,7 @@ class UsuarioController extends Controller
         return view('pages.usuario.create');
     }
 
-    public function atualizarUsuario(Request $request, $id)
+    public function atualizarUsuario(UsuarioFormRequest $request, $id)
     {
         if ($request->method() == "PUT") {
             $data = $request->all();
@@ -61,5 +61,4 @@ class UsuarioController extends Controller
 
         return view('pages.usuario.atualiza', compact('findUsuario'));
     }
-
 }
