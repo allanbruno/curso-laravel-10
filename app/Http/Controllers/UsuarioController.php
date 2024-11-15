@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UsuarioFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -34,6 +35,7 @@ class UsuarioController extends Controller
     {
         if ($request->method() == "POST") {
             $data = $request->all();
+            $data['password'] = Hash::make($data['password']);
             User::create($data);
 
             toastr()->success('Usuário cadastrado com sucesso!');
