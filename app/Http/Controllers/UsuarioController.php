@@ -50,6 +50,7 @@ class UsuarioController extends Controller
     {
         if ($request->method() == "PUT") {
             $data = $request->all();
+            $data['password'] = Hash::make($data['password']);
 
             $buscaRegistro = User::find($id);
             $buscaRegistro->update($data);

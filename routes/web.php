@@ -95,6 +95,10 @@ Route::prefix('usuario')->group(function () {
 
     Route::post('/cadastrarUsuario', [UsuarioController::class, 'cadastrarUsuario'])->name('cadastrar.usuario');
 
+    Route::get(
+        '/atualizarUsuario/{id}', [UsuarioController::class, 'atualizarUsuario']
+    )->name('atualizar.usuario');
+
     Route::put(
         '/atualizarUsuario/{id}', [UsuarioController::class, 'atualizarUsuario']
     )->name('atualizar.usuario');
